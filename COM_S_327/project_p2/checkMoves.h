@@ -1,1 +1,0 @@
-int checkMoves(FILE* fp);
