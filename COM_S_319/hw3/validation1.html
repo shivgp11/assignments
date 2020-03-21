@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="./validation1.js"></script>
+    <meta charset="UTF-8">
+    <title>Validation Form</title>
+</head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+    }
+
+</style>
+<body>
+<h1>
+    Validation Form
+</h1>
+<form id="validationForm" action="validation2.html" >
+<table style="width:100%" id="table">
+    <tr>
+        <th> Field Label</th>
+        <th>Field Type</th>
+        <th>Validation Rule</th>
+        <th>Result</th>
+    </tr>
+    <tr>
+        <td> First Name</td>
+        <td><input id="firstName" name="firstName" type="text" /> </td>
+        <td> <b> *REQUIRED</b> <br> Must contain only alphabetic or numeric characters</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> Last Name</td>
+        <td> <input id="lastName" name="lastName" type="text" /></td>
+        <td> <b> *REQUIRED</b> <br> Must contain only alphabetic or numeric characters</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> Gender</td>
+        <td><select name = "gender" id="gender">
+            <option value = "male"> Male</option>
+            <option value="female"> Female</option>
+        </select> </td>
+        <td> <b> *REQUIRED</b> </td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>State</td>
+        <td> <select name = "state" id="state" >
+            <option value = "cali" > California</option>
+            <option value = "florida"> Florida</option>
+            <option value = "newYork"> New York</option>
+            <option value="texas"> Texas</option>
+            <option value="hawaii"> Hawaii</option>
+            <option value="washington"> Washington</option>
+            <option value="colorado"> Colorado</option>
+            <option value=" virginia"> Virginia </option>
+            <option value="iowa"> Iowa </option>
+            <option value="arizona"> Arizona</option>
+        </select></td>
+        <td> <b> *REQUIRED</b> <br> Select from given list</td>
+        <td> </td>
+    </tr>
+</table>
+    <p>
+        <input onclick="validation1()" type="button" id="submit" name="submit" value="Continue" />
+    </p>
+
+</form>
+
+</body>
+
+</html>

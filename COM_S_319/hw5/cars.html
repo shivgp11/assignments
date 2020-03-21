@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html lang="en">
+
+<style>
+  table, th, td  {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+</style>
+<head>
+  <meta charset="utf-8">
+  <title>Homework 4</title>
+
+</head>
+
+<body>
+  
+	<!-- #TODO Table goes here -->
+  <div ng-app="myApp" ng-controller="carsCtrl"> 
+
+      <table>
+        <thead> 
+          <tr>    
+              <th>
+				<select ng-model="manufacturer">
+                <option 
+                    ng-repeat="x in cars " 
+                    value="{{x.manufacturer}}">{{x.manufacturer}}
+				</option>
+				</select>
+				</th> 
+              <th>Model</th> 
+              <th ng-click="sortColumn('year')">Year</th> 
+              <th>Stock</th> 
+              <th>Price</th> 
+              <th>Option</th>
+          </tr> 
+        </thead> 
+        <tr ng-repeat="x in cars | orderBy:column:reverse | filter:predicate(manufacturer)">
+          <td>{{ x.manufacturer }}</td>
+          <td>{{ x.model }}</td>
+          <td>{{ x.year }}</td>
+          <td>{{ x.stock }}</td>
+          <td>{{ x.price | currency:"$" }}</td>
+          <td><button ng-click="x.stock=x.stock+1">Increment</button></td>
+        </tr>
+      </table>
+      
+      </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <script src="cars.js"></script>
+  <script>
+    //Your script goes here
+    var app = angular.module('myApp', []);
+    app.constant("Cars", cars);
+    app.controller('carsCtrl', ["$scope", "Cars", function($scope, Cars){
+      $scope.cars = Cars; 
+
+      //Script for sorting year column
+      $scope.column = 'year'; 
+      $scope.reverse = false; 
+      $scope.sortColumn = function(col){
+        $scope.column = col;
+        if($scope.reverse){
+          $scope.reverse = false;
+        }else{
+          $scope.reverse = true;
+        }
+      };
+
+      $scope.predicate = function( manufacturer ) {
+        return function( item ) {
+        return !manufacturer || item.manufacturer === manufacturer;
+        };
+      };
+    }]);
+  </script>
+</body>
+</html>

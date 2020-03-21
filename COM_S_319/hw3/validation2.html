@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="./validation2.js"></script>
+    <meta charset="UTF-8">
+    <title> Contact Information</title>
+</head>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+    }
+</style>
+
+<body>
+<h1>Contact Information</h1>
+<form id="validationForm" action="" >
+    <table style="width:100%" id="table">
+        <tr>
+            <th> Field Label</th>
+            <th>Field Type</th>
+            <th>Validation Rule</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td> Email</td>
+            <td><input id="email" name="email" type="text" /> </td>
+            <td> <b> *REQUIRED</b> <br> Must be in the form xxx@xxx.xxx <br> x should be alphanumeric (eg. no special symbols) </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> Phone Number</td>
+            <td> <input id="phoneNumber" name="phoneNumber" type="text" /></td>
+            <td> <b> *REQUIRED</b> <br> Must be in the form <br> xxx-xxx-xxxx or xxxxxxxxxx <br> x should be numeric</td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> Address</td>
+            <td> <input id="address" name="address" type="text" /></td>
+            <td> <b> *REQUIRED</b> <br> Must be in the form of city,state <br> Example: Ames,Iowa </td>
+            <td> </td>
+        </tr>
+    </table>
+    <p>
+        <input onclick="validation2()" type="button" id="submit" name="submit" value="Submit" />
+    </p>
+</form>
+</body>
+</html>
