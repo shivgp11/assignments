@@ -1,0 +1,1 @@
+int checkFoundations(FILE* fp);

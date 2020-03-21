@@ -1,0 +1,1 @@
+int checkStock(FILE* fp);

@@ -1,0 +1,1 @@
+int checkRules(FILE* fp);
