@@ -1,0 +1,19 @@
+# Input file with comments!
+#
+# The list is initially empty.
+#
+# F n: add element to front of the list
+# B n: add element to back of the list
+# L  : show the current list
+# R  : reset the list back to empty
+#
+
+L
+
+F 42 L R
+
+B 42 L R
+
+F 42  F 37  F 29  L   # Add these to the front, and display
+
+B 77  B 99  L         # Add these to the back, and display
