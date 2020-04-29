@@ -134,24 +134,5 @@ int checkTableau(FILE *fp)
 			}
 		}
 	}
-
-	// printf("TABLEAU: \n");
-	// for(int i = 0; i < 7; i++) {
-	// 	current = coveredTable[i];
-	// 	while(current != NULL) {
-	// 		printf("%c", current->rank);
-	// 		printf("%c ", current->suit);
-	// 		current = current->next;
-	// 	}
-	// 	printf("| ");
-	// 	current = uncoveredTable[i];
-	// 	while(current != NULL) {
-	// 		printf("%c", current->rank);
-	// 		printf("%c ", current->suit);
-	// 		current = current->next;
-	// 	}
-	// 	printf("\n");
-	// }
-
 	return 1;
 }

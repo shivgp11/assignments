@@ -1,0 +1,66 @@
+Functionalities implemented by Akhilesh Ratnakumar:
+   1. Makefile linking 
+   2. Displaying all the elements on the termbox interface except the foundation display
+   2. Switches in main if it is file or seed and if seed takes in additonal switches that are turn numbers and limit resets.
+   3. Hotkey mapping in main
+   4. Restart if 'r' is pressed. (Partially working)
+
+int main(int argc, char* argv[]) (game.c)
+Takes input and checks if there is a switch for filename or for random seed. If random switch, reads in the switch for either
+turn 1 or turn 3, and optionally reads in the number of limited resets. If file switch parses the given file.
+Initializes game board based on the input switch and reads in the keys and manipulates the interface. When valid moves are made,
+interface is cleared and all the new interface with updated moves are displayed.
+
+void init_hotkeys_display()
+Displays the hotkeys section of the interface. Displays filename on the top if file switch was read.
+
+void init_tablueau_display()
+Displays the tablueau section of the interface and calls the card pointers for all the covered and uncovered cards.
+
+void displayCard(char rank, char suit, int col, int row)
+Function to display a 4x4 card with the given rank and char to be displayed with the given coordinates on the interface.
+
+void clearCard(int col, int row)
+Displays a 4x4 green space that if there are no cards on the waste or stock.
+
+void invalidMove(int isInvalid)
+Displays 'Invalid Move' on the interface.
+
+void init_waste_display()
+Displays the waste and stock cards and their resepctive number of cards on the interface. Displays either one card or
+three based on the turn number from the file or switch if random.s
+
+
+Functionalities implemented by Shiv Patel:
+   1. Random gamestate generation
+   2. clearing gamestate(partially working)
+   3. Displaying the foundations to termbox
+
+void init_foundations_display()
+Displays the cards in the foundation to termbox. It will either display a blank green card if the foundation is empty, or display 
+the top of the foundations(aka the highest suit)
+
+double Random()
+Generates a random number based on the seed initialized with the -s switch
+
+void randomize()
+A function that calls the other functions to create and initialize the randomized game
+
+long choose_randomly_between(long a, long b) 
+Uses the number returned by Random() to generate a number between a and b
+
+void Swap(int i, int j)
+swaps two array elements 
+
+void shuffle(int deck[])
+Takes an array of integers and populates it with integers from 1-52. It then shuffles the integers in the array.
+
+void createCards()
+populates a struct array of size of 52. Each element represents a card in a standard deck where the struct is initialized with a rank and suit. 
+
+void createGame()
+uses the shuffled int array from shuffle() with the struct array from createdCards() to make a random new game state based on the specified seed 
+from the -s switch
+
+void clearGame()
+Frees all the memory pointed to by the tableau, foundations, stock, and waste pointers. 

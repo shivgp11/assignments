@@ -1,7 +1,7 @@
 all: check advance game
 
-check: project.o parse.o checkRules.o checkFoundations.o checkTableau.o	checkCards.o checkMoves.o checkStock.o 
-	gcc -o check project.o parse.o checkRules.o checkFoundations.o checkTableau.o checkCards.o checkMoves.o checkStock.o
+check: checkFile.o parse.o checkRules.o checkFoundations.o checkTableau.o	checkCards.o checkMoves.o checkStock.o 
+	gcc -o check checkFile.o parse.o checkRules.o checkFoundations.o checkTableau.o checkCards.o checkMoves.o checkStock.o
 
 advance: project.o parse.o checkRules.o checkFoundations.o checkTableau.o checkCards.o checkMoves.o checkStock.o 
 	gcc -o advance project.o parse.o checkRules.o checkFoundations.o checkTableau.o checkCards.o checkMoves.o checkStock.o
@@ -14,6 +14,9 @@ game.o: game.c
 
 project.o: project.c 
 	gcc -c project.c 
+
+checkFile.o: checkFile.c
+	gcc -c checkFile.c
 
 display.o: display.c display.h
 	gcc -c -I/share/cs327/include display.c /share/cs327/lib/libtermbox.a
