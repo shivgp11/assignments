@@ -1,0 +1,1 @@
+A basic snake game in JavaScript and HTML

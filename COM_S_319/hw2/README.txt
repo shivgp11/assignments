@@ -1,0 +1,1 @@
+A basic client-server chat application in Java

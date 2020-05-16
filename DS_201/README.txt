@@ -1,0 +1,1 @@
+All assignments contain python 3 files that are to be run in Jupyter Notebook. They showcase the use of pandas and the basics of machine learning.
