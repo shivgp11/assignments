@@ -1,5 +1,6 @@
 # assignments
 A repository housing my past programming assignments <br />
+All folders contain READMEs briefly describing the assignments <br />
 The bulk of my programming experience is in C/C++ from COM_S_327 <br />
 <br />
 Java: <br />
