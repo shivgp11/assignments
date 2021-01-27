@@ -1,0 +1,268 @@
+start:
+B skipBigBranch
+bigBranchJump2:
+B bigBranchJump3
+skipBigBranch:
+ADD X0, X1, X2
+ADD X3, X4, X5
+ADD X6, X7, X8
+ADD X9, X10, X11
+ADD X12, X13, X14
+ADD X15, X16, X17
+ADD X18, X19, X20
+ADD X21, X22, X23
+ADD X24, X25, X26
+ADD X27, X28, X29
+ADD X30, X31, X31
+ADDI X1, X1, #0
+ADDI X0, X1, #1
+ADDI X1, X2, #-1
+ADDI X5, X5, #-2
+ADDI X10, X31, #500
+ADDI X31, X28, #-231
+ADDI X29, X30, #257
+ADDI X13, X18, #10000
+AND X0, X1, X2
+AND X3, X4, X5
+AND X6, X7, X8
+AND X9, X10, X11
+AND X12, X13, X14
+AND X15, X16, X17
+AND X18, X19, X20
+AND X21, X22, X23
+AND X24, X25, X26
+AND X27, X28, X29
+AND X30, X31, X31
+ANDI X0, X1, #0
+ANDI X0, X0, #-1
+ANDI X31, X30, #1
+ANDI X1, X5, #-5
+ANDI X2, X8, #1
+ANDI X10, X20, #5
+ANDI X20, X26, #200
+ANDI X28, X4, #-425
+B branch1
+branch1:
+B branch2
+branch3:
+ADDI X31, X31, #0
+B exitBranch
+branch2:
+B branch3
+exitBranch:
+ADD X31, X31, X31
+returnBranch:
+B.EQ conditionBranch
+B.NE conditionBranch
+B.HS conditionBranch
+B.LO conditionBranch
+B.MI conditionBranch
+B.PL conditionBranch
+B.VS conditionBranch
+B.VC conditionBranch
+B.HI conditionBranch
+B.LS conditionBranch
+B.GE conditionBranch
+B.LT conditionBranch
+B.GT conditionBranch
+B.LE conditionBranch
+conditionBranch:
+B.EQ returnBranch
+B.NE returnBranch
+B.HS returnBranch
+B.LO returnBranch
+B.MI returnBranch
+B.PL returnBranch
+B.VS returnBranch
+B.VC returnBranch
+B.HI returnBranch
+B.LS returnBranch
+B.GE returnBranch
+B.LT returnBranch
+B.GT returnBranch
+B.LE returnBranch
+BL branchLink2
+branchLink1:
+ADD X31, X31, X31
+BL branchLinkExit
+branchLink2:
+BL branchLink1
+branchLinkExit:
+ADD X31, X31, X31
+BL branchRegister
+B branchRegisterExit
+branchRegister:
+BR X30
+branchRegisterExit:
+ADD X31, X31, X31
+CBNZ X0, notZeroBranch
+notZeroBackwardBranch:
+B notZeroBranchExit
+notZeroBranch:
+ADD X31, X31, X31
+CBNZ X1, notZeroBackwardBranch
+notZeroBranchExit:
+ADD X31, X31, X31
+CBZ X6, zeroBranch
+zeroBackwardBranch:
+B zeroBranchExit
+zeroBranch:
+ADD X31, X31, X31
+CBZ X31, zeroBackwardBranch
+zeroBranchExit:
+ADD X31, X31, X31
+DUMP
+EOR X0, X1, X2
+EOR X3, X4, X5
+EOR X6, X7, X8
+EOR X9, X10, X11
+EOR X12, X13, X14
+EOR X15, X16, X17
+EOR X18, X19, X20
+EOR X21, X22, X23
+EOR X24, X25, X26
+EOR X27, X28, X29
+EOR X30, X31, X31
+EORI X0, X1, #0
+EORI X3, X4, #-1
+EORI X6, X7, #1
+EORI X9, X10, #20
+EORI X12, X13, #-34
+EORI X15, X16, #1234
+EORI X18, X19, #-1234
+EORI X21, X22, #531
+EORI X24, X25, #223
+EORI X27, X28, #-1224
+EORI X30, X31, #-563
+LDUR X19, [X28, #16]
+LDUR X0, [X28, #0]
+LDUR X20, [X0, #32]
+LDUR X31, [X31, #512]
+LDUR X3, [X4, #13]
+LDUR X8, [X 25, #37]
+LSL X0, X1, #3
+LSL X0, X0, #0
+LSL X30, X1, #2
+LSL X5, X11, #10
+LSL X17, X18, #15
+LSL X4, X6, #-1
+LSL X9, X20, #-5
+LSR X0, X1, #3
+LSR X0, X0, #0
+LSR X30, X1, #2
+LSR X5, X11, #10
+LSR X17, X18, #15
+LSR X4, X6, #-1
+LSR X9, X20, #-5
+MUL X0, X1, X2
+MUL X3, X4, X5
+MUL X6, X7, X8
+MUL X9, X10, X11
+MUL X12, X13, X14
+MUL X15, X16, X17
+MUL X18, X19, X20
+MUL X21, X22, X23
+MUL X24, X25, X26
+MUL X27, X28, X29
+MUL X30, X31, X31
+ORR X0, X1, X2
+ORR X3, X4, X5
+ORR X6, X7, X8
+ORR X9, X10, X11
+ORR X12, X13, X14
+ORR X15, X16, X17
+ORR X18, X19, X20
+ORR X21, X22, X23
+ORR X24, X25, X26
+ORR X27, X28, X29
+ORR X30, X31, X31
+ORRI X0, X1, #22
+ORRI X0, X0, #103
+ORRI X30, X1, #0
+ORRI X5, X11, #-1
+ORRI X17, X18, #1
+ORRI X4, X6, #-593
+ORRI X9, X20, #502
+ORRI X27, X0, #1232
+ORRI X23, X21, #-2134
+PRNL
+PRNT X0
+PRNT X1
+PRNT X2
+PRNT X3
+PRNT X4
+PRNT X5
+PRNT X6
+PRNT X7
+PRNT X8
+PRNT X9
+PRNT X10
+PRNT X11
+PRNT X12
+PRNT X13
+PRNT X14
+PRNT X15
+PRNT X16
+PRNT X17
+PRNT X18
+PRNT X19
+PRNT X20
+PRNT X21
+PRNT X22
+PRNT X23
+PRNT X24
+PRNT X25
+PRNT X26
+PRNT X27
+PRNT X28
+PRNT X29
+PRNT X30
+PRNT X31
+STUR X19, [X28, #16]
+STUR X0, [X28, #0]
+STUR X20, [X0, #32]
+STUR X31, [X31, #512]
+STUR X3, [X5, #13]
+STUR X8, [X5, #37]
+SUB X0, X1, X2
+SUB X3, X4, X5
+SUB X6, X7, X8
+SUB X9, X10, X11
+SUB X12, X13, X14
+SUB X15, X16, X17
+SUB X18, X19, X20
+SUB X21, X22, X23
+SUB X24, X25, X26
+SUB X27, X28, X29
+SUB X30, X31, X31
+SUBI X1, X1, #0
+SUBI X0, X1, #1
+SUBI X1, X2, #-1
+SUBI X5, X5, #-2
+SUBI X10, X31, #500
+SUBI X31, X28, #-231
+SUBI X29, X30, #257
+SUBI X13, X18, #10000
+SUBIS X1, X1, #3
+SUBIS X0, X1, #2343
+SUBIS X1, X2, #-1222
+SUBIS X5, X5, #-23224
+SUBIS X10, X31, #34562
+SUBIS X31, X28, #-2225
+SUBIS X29, X30, #22354
+SUBIS X13, X18, #10000
+SUBS X0, X1, X2
+SUBS X3, X4, X5
+SUBS X6, X7, X8
+SUBS X9, X10, X11
+SUBS X12, X13, X14
+SUBS X15, X16, X17
+SUBS X18, X19, X20
+SUBS X21, X22, X23
+SUBS X24, X25, X26
+SUBS X27, X28, X29
+SUBS X30, X31, X31
+bigBranchJump:
+B bigBranchJump2
+bigBranchJump3:
+HALT

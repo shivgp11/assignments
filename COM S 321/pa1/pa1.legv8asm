@@ -1,0 +1,71 @@
+	// Name: Shiv Patel
+	// Netid: shivgp11
+	
+	ADD X0, XZR, XZR 				// addr
+	ADDI X1, XZR, #10				// length (you can change the length here)
+fill:								
+	SUBI X9, X1, #1					// num = length - 1
+	ADD X10, XZR, XZR 				// i = 0
+	fill_loop:
+		LSL X11, X10, #3			// i * 8
+		ADD X11, X11, X0			// addr + (i * 8)
+		STUR X9, [X11, #0] 			// addr[i] = num
+		SUBI X9, X9, #1				// num--
+		ADDI X10, X10, #1			// i++
+		SUBS X12, X10, X1		
+		B.GE insertionSort			// if i >= length, then exit loop and go to insertionSort
+		B fill_loop
+insertionSort:
+	DUMP
+	ADDI X19, XZR, #1				// i  = 1 (pos)
+	insertionSort_loop:
+		BL insertSortedPos			// call insertSortedPos
+		ADDI X19, X19, #1			// i++
+		SUBS X9, X19, X1
+		B.GE end					// if( i >= length) exit loop
+		B insertionSort_loop
+insertSortedPos:
+	SUBI SP, SP, #8					// create space for LR
+	STUR LR, [SP, #0]				// back up LR
+	LSL X9, X19, #3					// pos * 8
+	ADD X9, X9, X0					// addr + (pos * 8)
+	LDUR X20, [X9, #0]         		// val = addr[pos]
+	BL findSortedPos				// call findSortedPos
+	BL shiftRight					// call shift right
+	ADD X10, XZR, X21				// save p to temp register
+	LSL X10, X10, #3				// p * 8
+	ADD X10, X10, X0				// addr + (p * 8)
+	STUR X20, [X10, #0]				// addr[p] = val 
+	LDUR LR, [SP, #0]				//recover LR
+	ADDI SP, SP, #8					//restore stack
+	BR LR							//return to insertionSort
+findSortedPos:
+	ADD X21, XZR, XZR 				// i = 0 (p)
+	findSortedPos_loop:
+		LSL X9, X21, #3				// i*8
+		ADD X9, X9, X0				// addr + (i * 8)
+		LDUR X10, [X9, #0]			// addr[i]
+		SUBS X11, X10, X20			
+		B.GE end_findSortedPos_loop // if(addr[i] >= val), end loop and jump to end_findSortedPos_loop
+		ADDI X21, X21, #1			// i++
+		SUBS X11, X21, X19			
+		B.GE findSortedPos_loop		// if i >= pos, loop
+	end_findSortedPos_loop:
+		BR LR						// return to insertSortedPos with p in X21
+shiftRight:
+	ADD X9, XZR, X19				// i = pos
+	SUBI X9, X9, #1					// i = pos - 1
+	shiftRight_loop:
+		LSL X10, X9, #3				// i * 8
+		ADD X10, X10, X0			// addr + (i * 8)
+		LDUR X11, [X10, #0]			// addr[i] in temp reg
+		STUR X11, [X10, #8]			// addr[i+ 1] = addr[i]
+		SUBI X9, X9, #1				// i--
+		SUBS X12, X9, X21
+		B.LT end_shiftRight_loop	// if i < p, end loop and jump to end_shiftRight_loop
+		B shiftRight_loop			// loop 
+		
+	end_shiftRight_loop:
+		BR LR						// return to insertSortedPos
+end:
+	DUMP
