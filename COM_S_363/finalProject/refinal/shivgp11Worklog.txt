@@ -1,0 +1,14 @@
+Week of November 2, 2020
+
+*Created database
+*Created tables and imported data set
+
+Week of November 9, 2020
+
+*Worked with Cen to finish queries and begin query optimization
+*Created perfSQL
+
+Week of November 23, 2020
+
+*Worked with Cen to begin and finish the part 3 java portion of the final project.
+*Was able to optimize 5/6 of the queries.

@@ -1,0 +1,35 @@
+-Part1-
+1: ProjectDDl.sql
+make database from er-diagram (ddl file)
+dont include triggers
+
+2: ProjectInsert.sql
+load data into tables
+create dump file
+
+3: EndsureDataConsistency.sql
+data inconsistency file with triggers
+
+5: CreateDBUsers.sql
+create sql users file
+
+-Part2-
+1: Before.sql
+Answers to questions on table 1
+
+2: PhysicalDesign.sql
+Create indexes or other database changes
+
+3: After.sql
+optimized before.sql queries
+
+4: PerfSQL.pdf
+table filled with execution times before and after optimization
+
+-Part3-
+JDBC
+
+-Part4-
+1: Team work log
+
+2: Individual work log

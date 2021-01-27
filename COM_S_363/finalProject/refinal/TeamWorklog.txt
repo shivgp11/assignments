@@ -1,0 +1,20 @@
+Week of November 2, 2020
+
+-Shiv's Task
+*Create database
+*Importing data / Creating Tables
+-Cen's Task
+*Creating triggers
+*Starting queries 
+
+Week of November 9, 2020
+
+-Began exclusively working together as a group (we are roommates)
+
+*Finished writing queries / Began query optimization
+*Shiv created perfSQL
+
+Week of November 23, 2020
+
+*Began and finished the part 3 java portion of the final project. 
+*Shiv was able to optimize up to 5/6 of the queries.  

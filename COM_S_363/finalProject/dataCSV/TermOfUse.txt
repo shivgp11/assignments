@@ -1,0 +1,10 @@
+TERM OF USE
+
+The data are given to students in this semester of this section for COMS 363 for education use to complete the 
+given project for this course. The data are not to be shared publicly or given to anyone else without a written 
+permission from Dr. Wallapak Tavanapong. Violation of the term of use will impact the student's grade for this course.
+
+There are two sets of data.
+
+The folder 2016 contains data captured from Twitter in 2016.
+
